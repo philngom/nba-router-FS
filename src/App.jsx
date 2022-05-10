@@ -1,5 +1,5 @@
-import Character from './views/Characters';
-import Character from './views/Characters';
+import Character from './components/Character';
+import Characters from './views/Characters';
 import { Route, Switch } from 'react-router-dom';
 
 export default function App() {
