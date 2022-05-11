@@ -8,10 +8,29 @@ export default function Characters() {
   useEffect(() => {
     const fetchCharacters = async () => {
       const data = await fetch('https://rickandmortyapi.com/api/character');
-      console.log(data);
+      const { results } = await data.json();
+      setCharacters(results);
+      setIsLoading(false);
     };
     fetchCharacters();
   }, []);
 
-  return <div>Characters</div>;
+  return (
+    <>
+      <h1>Rick and Morty Characters</h1>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        characters.map((character) => {
+          return (
+            <div key={character.id}>
+              <Link to={`/character/${character.id}`}>
+                <li>{character.name}</li>
+              </Link>
+            </div>
+          );
+        })
+      )}
+    </>
+  );
 }

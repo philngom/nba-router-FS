@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 export default function App() {
   return (
     <Switch>
-      <Route path="/:id">
+      <Route path="/character/:id">
         <Character />
       </Route>
       <Route path="/">
